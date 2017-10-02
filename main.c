@@ -49,7 +49,9 @@ t_data	*ft_creat_data(char *argv)
 	data->ysize = 0;
 	data->mvx = 0;
 	data->mvy = 0;
-	if ((fd = open(argv, O_RDONLY)) < 0 || (fd = open(argv, O_DIRECTORY)) >= 0)
+	if ((fd = open(argv, O_DIRECTORY)) >= 0)
+		ft_error(1);
+	if ((fd = open(argv, O_RDONLY)) < 0)
 		ft_error(1);
 	while (read(fd, &c, 1))
 	{
