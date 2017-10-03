@@ -6,7 +6,7 @@
 /*   By: ichebota <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/19 18:07:39 by ichebota          #+#    #+#             */
-/*   Updated: 2017/09/12 18:51:35 by ichebota         ###   ########.fr       */
+/*   Updated: 2017/10/03 17:30:51 by ichebota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ t_data	*ft_creat_data(char *argv)
 	if ((fd = open(argv, O_DIRECTORY)) >= 0)
 		ft_error(1);
 	if ((fd = open(argv, O_RDONLY)) < 0)
+		ft_error(1);
+	if (read(fd, &c, 1) == 0)
 		ft_error(1);
 	while (read(fd, &c, 1))
 	{
